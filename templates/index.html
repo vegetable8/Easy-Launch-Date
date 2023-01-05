@@ -1,21 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Countdown</title>
     <link rel="stylesheet" href="main.css">
-    <link href="{{ url_for('static',filename='css/main.css') }}"rel="stylesheet">
-</head>
-<body>
-    <div id="countdown" class="center">
-        <span id="months"></span>
-        <span id="days"></span>
-        <span id="hours"></span>
-        <span id="minutes"></span>
-        <span id="seconds"></span>
+    <link href="{{ url_for('static',filename='css/main.css') }}"
+      rel="stylesheet">
+  </head>
+  <body>
+    <div class="center text-center countdown">
+      <img src="https://i.pinimg.com/originals/31/df/df/31dfdf1d4c7becf393e5a63300e0f247.gif" class="main-img">
+      <div id="countdown" class="font">
+        <div class="countdown">
+          <span id="months" class="countdown"></span>
+          <span id="days"></span>
+          <span id="hours"></span>
+          <span id="minutes"></span>
+          <span id="seconds"></span>
+        </div>
       </div>
+    </div>
+    <button onclick="toggleLogin()">Show/Hide Login</button>
+
+<div class="floating-login">
+  <form>
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" name="username"><br>
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password"><br><br>
+    <input type="submit" value="Submit">
+  </form> 
+</div>
+
+<script>
+  function toggleLogin() {
+    var login = document.querySelector('.overlay, .floating-login');
+    if (login.style.display === 'none') {
+      login.style.display = 'block';
+    } else {
+      login.style.display = 'none';
+    }
+  }
+</script>
     <script>
         function countDown(endDate) {
     let months, days, hours, minutes, seconds;
@@ -70,12 +98,25 @@
   
         countdownElement.innerHTML += seconds + " seconds";
       } else {
-        return;
+         // Count up timer
+        months = parseInt(timeElapsed / 2592000);
+        timeElapsed = (timeElapsed % 2592000);
+
+        days = parseInt(timeElapsed / 86400);
+        timeElapsed = (timeElapsed % 86400);
+
+        hours = parseInt(timeElapsed / 3600);
+        timeElapsed = (timeElapsed % 3600);
+
+        minutes = parseInt(timeElapsed / 60);
+        timeElapsed = (timeElapsed % 60);
+
+        seconds = parseInt(timeElapsed);
       }
     }
   }
 
 countDown("2023-02-01 4:00:00");
     </script>
-</body>
+  </body>
 </html>
