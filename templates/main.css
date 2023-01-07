@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,200;0,400;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+.center {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.font {
+  font-family: 'Bree Serif';
+  font-weight: light;
+}
+.main-img {
+  height: auto;
+  width: 75%;
+}
+.text-center {
+  text-align: center;
+}
+.countdown {
+  font-size: 36px;
+
+}
+.floating-login {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 300px;
+  background-color: white;
+  border: 1px solid #ccc;
+  z-index: 9999;
+  display: none; /* hide the login page by default */
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* transparent black background */
+  z-index: 9998; /* position the overlay behind the login form */
+  display:none
+}
